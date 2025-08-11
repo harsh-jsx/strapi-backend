@@ -492,7 +492,6 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       'api::service.service'
     > &
       Schema.Attribute.Private;
-    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     name: Schema.Attribute.String;
     price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;

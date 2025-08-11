@@ -29,16 +29,6 @@
     "reviews": {
       "type": "decimal"
     },
-    "media": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "Service": {
       "type": "relation",
       "relation": "oneToOne",
