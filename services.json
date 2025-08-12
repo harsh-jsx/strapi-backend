@@ -1,0 +1,95 @@
+[
+  {
+    "category": "Skin",
+    "subcategories": [
+      {
+        "name": "Dermologica",
+        "services": [
+          {
+            "name": "All skin type treatments",
+            "price": "8400 onwards",
+            "duration": "60 Minutes",
+            "description": "A customized treatment with deep cleansing, gentle exfoliation, a hydrating masque, and a relaxing massage to leave your skin radiant and refreshed. Tailored Dermalogica serums and botanical blends enhance every step for maximum results."
+          },
+          {
+            "name": "Pro Brightening Skin Treatment",
+            "price": "8900 onwards",
+            "duration": "75 Minutes",
+            "description": "Packed with silky, peptide-rich formulas, this treatment targets uneven skin tone and pigmentation, leaving your skin brighter, softer, and visibly more even with reduced signs of premature aging."
+          },
+          {
+            "name": "Antiaging",
+            "price": "8900 onwards",
+            "duration": "60 Minutes",
+            "description": "A deeply hydrating facial designed for dry, dull, or flaky skin. Infused with honey-based products, natural humectants, and a soothing hazelnut oil massage with essential oils, it restores moisture, stimulates cell renewal, and relieves tension."
+          },
+          {
+            "name": "Sensitive Skin Treatment",
+            "price": "8900 onwards",
+            "duration": "60 Minutes",
+            "description": "A deeply hydrating facial designed for dry, dull, or flaky skin. Infused with honey-based products, natural humectants, and a soothing hazelnut oil massage with essential oils, it restores moisture, stimulates cell renewal, and relieves tension."
+          },
+          {
+            "name": "Dermafrac",
+            "price": "9000 onwards",
+            "duration": "75 Minutes",
+            "description": "Dermafrac combines painless micro-needling with advanced infusion to deliver smoother, more radiant skin with zero downtime. Customized formulations target your specific concerns, making it safe and effective for all skin types."
+          },
+          {
+            "name": "Express Brightening (Clean up)",
+            "price": "5500 onwards",
+            "duration": "30 Minutes",
+            "description": "A facial deeply cleanses, exfoliates, and nourishes the skin while boosting hydration, circulation, and essential nutrients through a rejuvenating massage and face pack."
+          }
+        ]
+      },
+      {
+        "name": "Thalgo Skin",
+        "services": [
+          {
+            "name": "Source Marine Facial",
+            "price": "8400 onwards",
+            "duration": "60 Minutes",
+            "description": "A moisture-rich treatment ideal for all skin types, especially dehydrated skin. It begins with a relaxing massage, followed by gentle cleansing, exfoliation, a hydrating serum, and a moisturizing mask, finishing with Hydra Marine 24H Gel Cream for deep, lasting hydration."
+          },
+          {
+            "name": "Brightening Rejuvenating Facial",
+            "price": "8950 onwards",
+            "duration": "75 Minutes",
+            "description": "Thalgo’s high-performance anti-pigmentation and rejuvenating facial targets dark spots and age marks to reveal a flawless complexion. Skin is left brighter, plumper, and visibly clearer."
+          },
+          {
+            "name": "Thalgo Hyalu - Procollagene",
+            "price": "8950 onwards",
+            "duration": "60 Minutes",
+            "description": "A targeted wrinkle-by-wrinkle treatment powered by the Hyalu-Procollagene complex and THALGO Roller Boosters, delivering visible results from the first session. This marine-based filler smooths even deep wrinkles for a triple-action rejuvenating effect."
+          },
+          {
+            "name": "Purete Marine (Oily Skin)",
+            "price": "8400 onwards",
+            "duration": "60 Minutes",
+            "description": "An advanced wrinkle-correction treatment featuring the Hyalu-Procollagene complex and THALGO Roller Boosters, designed to smooth, plump, and fill even deep-set wrinkles. Visible rejuvenation and a youthful glow are achieved from the very first session."
+          },
+          {
+            "name": "Marine Treatment / AntiAging",
+            "price": "9500 onwards",
+            "duration": "90 Minutes",
+            "description": "This manual facelift treatment tightens facial muscles while lifting and toning the face, neck, and décolleté. It reshapes contours, plumps the skin, and smooths wrinkles, enveloping the skin in luxurious softness."
+          },
+          {
+            "name": "Intensive Eye Treatment",
+            "price": "4000 onwards",
+            "duration": "30 Minutes",
+            "description": "This ultra-relaxing treatment begins with a gentle cleanse and eye massage using a targeted concentrate, followed by specialized products to reduce puffiness, diminish dark circles, and smooth fine lines."
+          },
+          {
+            "name": "Thalgo 3 Algae Face Cleanup",
+            "price": "5000 onwards",
+            "duration": "30 Minutes",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  }
+]

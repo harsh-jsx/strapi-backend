@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_slides_homes",
+  "info": {
+    "singularName": "media-slides-home",
+    "pluralName": "media-slides-homes",
+    "displayName": "media-slides-home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "src": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "image",
+        "vid"
+      ]
+    }
+  }
+}

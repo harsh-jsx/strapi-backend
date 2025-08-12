@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * gender service
+ * artist service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::gender.gender');
+module.exports = createCoreService('api::artist.artist');

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * gender controller
+ * subheading controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::gender.gender');
+module.exports = createCoreController('api::subheading.subheading');

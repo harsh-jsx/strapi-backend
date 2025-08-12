@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homepagevids",
+  "info": {
+    "singularName": "homepagevid",
+    "pluralName": "homepagevids",
+    "displayName": "homepagevid"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "src": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

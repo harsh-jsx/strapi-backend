@@ -14,36 +14,14 @@
     "name": {
       "type": "string"
     },
-    "description": {
-      "type": "blocks"
-    },
     "price": {
-      "type": "decimal"
+      "type": "string"
     },
     "duration": {
-      "type": "integer"
+      "type": "string"
     },
-    "rating": {
-      "type": "integer"
-    },
-    "reviews": {
-      "type": "decimal"
-    },
-    "Service": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category"
-    },
-    "services": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "Category"
-    },
-    "gender": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::gender.gender"
+    "description": {
+      "type": "richtext"
     }
   }
 }
