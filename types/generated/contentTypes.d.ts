@@ -422,6 +422,7 @@ export interface ApiArtistArtist extends Struct.CollectionTypeSchema {
   };
   attributes: {
     bgColor: Schema.Attribute.String;
+    blog: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -457,7 +458,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     authorDescription: Schema.Attribute.String;
     authorImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     authorName: Schema.Attribute.String;
-    blog: Schema.Attribute.Text;
+    blogContent: Schema.Attribute.Blocks;
     coverPic: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -505,6 +506,38 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::subcategory.subcategory'
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomepagecatalogueHomepagecatalogue
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'homepagecatalogues';
+  info: {
+    displayName: 'homepagecatalogue';
+    pluralName: 'homepagecatalogues';
+    singularName: 'homepagecatalogue';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::homepagecatalogue.homepagecatalogue'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1211,6 +1244,7 @@ declare module '@strapi/strapi' {
       'api::artist.artist': ApiArtistArtist;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
+      'api::homepagecatalogue.homepagecatalogue': ApiHomepagecatalogueHomepagecatalogue;
       'api::homepagevid.homepagevid': ApiHomepagevidHomepagevid;
       'api::media-slides-home.media-slides-home': ApiMediaSlidesHomeMediaSlidesHome;
       'api::rich-test.rich-test': ApiRichTestRichTest;

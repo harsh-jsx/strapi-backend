@@ -30,9 +30,6 @@
         "audios"
       ]
     },
-    "blog": {
-      "type": "text"
-    },
     "authorName": {
       "type": "string"
     },
@@ -48,6 +45,9 @@
         "videos",
         "audios"
       ]
+    },
+    "blogContent": {
+      "type": "blocks"
     }
   }
 }

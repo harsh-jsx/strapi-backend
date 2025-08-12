@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homepagecatalogues",
+  "info": {
+    "singularName": "homepagecatalogue",
+    "pluralName": "homepagecatalogues",
+    "displayName": "homepagecatalogue"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
