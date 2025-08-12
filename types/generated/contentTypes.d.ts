@@ -443,6 +443,38 @@ export interface ApiArtistArtist extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
+  collectionName: 'blogs';
+  info: {
+    displayName: 'Blog';
+    pluralName: 'blogs';
+    singularName: 'blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    authorDescription: Schema.Attribute.String;
+    authorImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    authorName: Schema.Attribute.String;
+    blog: Schema.Attribute.Text;
+    coverPic: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    heading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    readTime: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -532,6 +564,34 @@ export interface ApiMediaSlidesHomeMediaSlidesHome
     publishedAt: Schema.Attribute.DateTime;
     src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     type: Schema.Attribute.Enumeration<['image', 'vid']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRichTestRichTest extends Struct.CollectionTypeSchema {
+  collectionName: 'rich_tests';
+  info: {
+    displayName: 'richTest';
+    pluralName: 'rich-tests';
+    singularName: 'rich-test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blog: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rich-test.rich-test'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1149,9 +1209,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::artist.artist': ApiArtistArtist;
+      'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::homepagevid.homepagevid': ApiHomepagevidHomepagevid;
       'api::media-slides-home.media-slides-home': ApiMediaSlidesHomeMediaSlidesHome;
+      'api::rich-test.rich-test': ApiRichTestRichTest;
       'api::service.service': ApiServiceService;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::subheading.subheading': ApiSubheadingSubheading;
