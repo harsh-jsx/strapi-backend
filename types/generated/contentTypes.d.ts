@@ -512,6 +512,38 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFeaturedarticleFeaturedarticle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'featuredarticles';
+  info: {
+    displayName: 'featuredarticle';
+    pluralName: 'featuredarticles';
+    singularName: 'featuredarticle';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
+    linktext: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::featuredarticle.featuredarticle'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomepagecatalogueHomepagecatalogue
   extends Struct.CollectionTypeSchema {
   collectionName: 'homepagecatalogues';
@@ -597,6 +629,66 @@ export interface ApiMediaSlidesHomeMediaSlidesHome
     publishedAt: Schema.Attribute.DateTime;
     src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     type: Schema.Attribute.Enumeration<['image', 'vid']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMediagallaryMediagallary
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'mediagallaries';
+  info: {
+    displayName: 'mediagallary';
+    pluralName: 'mediagallaries';
+    singularName: 'mediagallary';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mediagallary.mediagallary'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMenserviceMenservice extends Struct.CollectionTypeSchema {
+  collectionName: 'menservices';
+  info: {
+    displayName: 'menservice';
+    pluralName: 'menservices';
+    singularName: 'menservice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::menservice.menservice'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    type: Schema.Attribute.Enumeration<['skin', 'hair', 'nail', 'wax', 'spa']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1244,9 +1336,12 @@ declare module '@strapi/strapi' {
       'api::artist.artist': ApiArtistArtist;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
+      'api::featuredarticle.featuredarticle': ApiFeaturedarticleFeaturedarticle;
       'api::homepagecatalogue.homepagecatalogue': ApiHomepagecatalogueHomepagecatalogue;
       'api::homepagevid.homepagevid': ApiHomepagevidHomepagevid;
       'api::media-slides-home.media-slides-home': ApiMediaSlidesHomeMediaSlidesHome;
+      'api::mediagallary.mediagallary': ApiMediagallaryMediagallary;
+      'api::menservice.menservice': ApiMenserviceMenservice;
       'api::rich-test.rich-test': ApiRichTestRichTest;
       'api::service.service': ApiServiceService;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;

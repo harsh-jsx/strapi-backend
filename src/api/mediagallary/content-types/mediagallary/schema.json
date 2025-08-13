@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mediagallaries",
+  "info": {
+    "singularName": "mediagallary",
+    "pluralName": "mediagallaries",
+    "displayName": "mediagallary"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

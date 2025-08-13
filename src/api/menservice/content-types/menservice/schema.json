@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menservices",
+  "info": {
+    "singularName": "menservice",
+    "pluralName": "menservices",
+    "displayName": "menservice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "skin",
+        "hair",
+        "nail",
+        "wax",
+        "spa"
+      ]
+    }
+  }
+}
