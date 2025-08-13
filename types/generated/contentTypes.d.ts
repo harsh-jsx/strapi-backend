@@ -681,6 +681,7 @@ export interface ApiMenserviceMenservice extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    heading: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -688,6 +689,11 @@ export interface ApiMenserviceMenservice extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    servicedesc: Schema.Attribute.Text;
+    servicename: Schema.Attribute.String;
+    serviceprice: Schema.Attribute.String;
+    servicetime: Schema.Attribute.String;
+    subheading: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['skin', 'hair', 'nail', 'wax', 'spa']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

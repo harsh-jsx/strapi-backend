@@ -20,6 +20,24 @@
         "wax",
         "spa"
       ]
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "servicename": {
+      "type": "string"
+    },
+    "serviceprice": {
+      "type": "string"
+    },
+    "servicetime": {
+      "type": "string"
+    },
+    "servicedesc": {
+      "type": "text"
     }
   }
 }
