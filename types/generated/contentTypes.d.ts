@@ -829,6 +829,43 @@ export interface ApiSubheadingSubheading extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiWomenserviceWomenservice
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'womenservices';
+  info: {
+    displayName: 'womenservice';
+    pluralName: 'womenservices';
+    singularName: 'womenservice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::womenservice.womenservice'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    servicedesc: Schema.Attribute.String;
+    servicename: Schema.Attribute.String;
+    serviceprice: Schema.Attribute.String;
+    servicetime: Schema.Attribute.String;
+    subheading: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['skin', 'hair', 'nail', 'wax', 'makeup', 'spa']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1352,6 +1389,7 @@ declare module '@strapi/strapi' {
       'api::service.service': ApiServiceService;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::subheading.subheading': ApiSubheadingSubheading;
+      'api::womenservice.womenservice': ApiWomenserviceWomenservice;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

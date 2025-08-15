@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "womenservices",
+  "info": {
+    "singularName": "womenservice",
+    "pluralName": "womenservices",
+    "displayName": "womenservice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "skin",
+        "hair",
+        "nail",
+        "wax",
+        "makeup",
+        "spa"
+      ]
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "servicename": {
+      "type": "string"
+    },
+    "serviceprice": {
+      "type": "string"
+    },
+    "servicetime": {
+      "type": "string"
+    },
+    "servicedesc": {
+      "type": "string"
+    }
+  }
+}
