@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * rich-test service
+ * tag service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::rich-test.rich-test');
+module.exports = createCoreService('api::tag.tag');

@@ -14,11 +14,6 @@
     "name": {
       "type": "string"
     },
-    "services": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service.service"
-    },
     "categories": {
       "type": "relation",
       "relation": "oneToMany",

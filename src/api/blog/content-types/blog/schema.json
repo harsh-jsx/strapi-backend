@@ -48,6 +48,12 @@
     },
     "blogContent": {
       "type": "blocks"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "blogs"
     }
   }
 }

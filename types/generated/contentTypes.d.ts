@@ -107,6 +107,43 @@ export interface AdminApiTokenPermission extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface AdminAuditLog extends Struct.CollectionTypeSchema {
+  collectionName: 'strapi_audit_logs';
+  info: {
+    displayName: 'Audit Log';
+    pluralName: 'audit-logs';
+    singularName: 'audit-log';
+  };
+  options: {
+    draftAndPublish: false;
+    timestamps: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    action: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'admin::audit-log'> &
+      Schema.Attribute.Private;
+    payload: Schema.Attribute.JSON;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -433,6 +470,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     readTime: Schema.Attribute.String;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -664,65 +702,6 @@ export interface ApiMenserviceMenservice extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiRichTestRichTest extends Struct.CollectionTypeSchema {
-  collectionName: 'rich_tests';
-  info: {
-    displayName: 'richTest';
-    pluralName: 'rich-tests';
-    singularName: 'rich-test';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    blog: Schema.Attribute.Blocks;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::rich-test.rich-test'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiServiceService extends Struct.CollectionTypeSchema {
-  collectionName: 'services';
-  info: {
-    displayName: 'Service';
-    pluralName: 'services';
-    singularName: 'service';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.RichText;
-    duration: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::service.service'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    price: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiSubcategorySubcategory extends Struct.CollectionTypeSchema {
   collectionName: 'subcategories';
   info: {
@@ -749,7 +728,6 @@ export interface ApiSubcategorySubcategory extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
     subheadings: Schema.Attribute.Relation<
       'oneToMany',
       'api::subheading.subheading'
@@ -786,6 +764,32 @@ export interface ApiSubheadingSubheading extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::subcategory.subcategory'
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Struct.CollectionTypeSchema {
+  collectionName: 'tags';
+  info: {
+    displayName: 'tag';
+    pluralName: 'tags';
+    singularName: 'tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blogs: Schema.Attribute.Relation<'manyToMany', 'api::blog.blog'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1333,6 +1337,7 @@ declare module '@strapi/strapi' {
     export interface ContentTypeSchemas {
       'admin::api-token': AdminApiToken;
       'admin::api-token-permission': AdminApiTokenPermission;
+      'admin::audit-log': AdminAuditLog;
       'admin::permission': AdminPermission;
       'admin::role': AdminRole;
       'admin::transfer-token': AdminTransferToken;
@@ -1347,10 +1352,9 @@ declare module '@strapi/strapi' {
       'api::media-slides-home.media-slides-home': ApiMediaSlidesHomeMediaSlidesHome;
       'api::mediagallary.mediagallary': ApiMediagallaryMediagallary;
       'api::menservice.menservice': ApiMenserviceMenservice;
-      'api::rich-test.rich-test': ApiRichTestRichTest;
-      'api::service.service': ApiServiceService;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::subheading.subheading': ApiSubheadingSubheading;
+      'api::tag.tag': ApiTagTag;
       'api::womenservice.womenservice': ApiWomenserviceWomenservice;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
